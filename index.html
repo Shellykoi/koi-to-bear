@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>此系水湲送给木旦土土的课表</title>
+<style>
+    /* 全局样式 */
+    body {
+        font-family: 'Microsoft YaHei', 'Segoe UI', sans-serif; /* 字体设置 */
+        margin: 0; /* 去除默认外边距 */
+        padding: 0; /* 去除默认内边距 */
+        display: flex; /* 使用 Flex 布局 */
+        overflow-y: auto; /* 允许垂直滚动 */
+        min-height: 100vh; /* 最小高度为视口高度 */
+        background-color: #fdfdfc; /* 背景颜色 */
+        background-image: url('富士山和樱花.jpg'); /* 背景图片 */
+        background-size: cover; /* 背景图片覆盖整个视口 */
+        background-position: center; /* 背景图片居中 */
+        background-attachment: fixed; /* 背景图片固定 */
+        background-repeat: no-repeat; /* 背景图片不重复 */
+    }
+
+    /* 主容器 */
+    .main-container {
+        display: flex; /* 使用 Flex 布局 */
+        width: 100%; /* 宽度占满父容器 */
+        padding: 20px; /* 内边距 */
+        gap: 2px; /* 左右容器之间的间距 */
+    }
+
+    /* 左侧面板 */
+    .left-panel {
+        /*flex: 1; *//* 占据剩余空间 */
+        width: 50%; /* 宽度为父容器的 15% */
+        max-width: 360px; /* 最大宽度 */
+        padding: 20px; /* 内边距 */
+        border-radius: 10px; /* 圆角 */
+        left: 5%; /* 距离左侧 1% */
+        right: 20%; /* 距离右侧 10% */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 阴影 */
+        position: sticky; /* 粘性定位 */
+        top: 70px; /* 距离顶部 65px */
+        height: fit-content; /* 高度自适应内容 */
+        background: rgb(238, 243, 250,0.3); /* 背景颜色（半透明） */
+        backdrop-filter: blur(3px); /* 毛玻璃效果 */
+        -webkit-backdrop-filter: blur(5px) ; /* Safari 兼容 */
+        /*border: 1px solid rgba(255, 255, 255, 0.3); *//* 边框 */
+    }
+
+    /* 左侧面板中的消息框 */
+    .message-box {
+        margin-bottom: 30px; /* 下边距 */
+        text-align: center;
+    }
+
+    /* 消息框中的图片 */
+    .message-box img {
+
+        width: 100%; /* 宽度占满父容器 */
+        max-width: 300px; /* 最大宽度 */
+        border-radius: 8px; /* 圆角 */
+        margin-bottom: 15px; /* 下边距 */
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* 阴影 */
+
+         opacity: 0.85; /* 设置透明度为 70% */
+    transition: opacity 0.3s ease; /* 添加过渡效果 */
+
+    }
+
+    .message-box img:hover {
+        opacity: 1; /* 完全不透明 */
+    }
+
+
+
+    /* 消息框中的文字 */
+    .message-text {
+        /*color: rgba(251, 247, 230);*/ /* 文字颜色 */
+        color: rgba(58, 53, 53, 0.9);
+        font-size: 14px; /* 字体大小 */
+        line-height: 1.6; /* 行高 */
+        padding: 15px; /* 内边距 */
+        /*background: #fffffd;*/ /* 背景颜色 */
+        border-radius: 6px; /* 圆角 */
+        backdrop-filter: blur(3px); /* 毛玻璃效果 */
+        -webkit-backdrop-filter: blur(5px) ; /* Safari 兼容 */
+    }
+
+    /* 右侧容器 */
+    .container {
+         /*top: 0px;*/ /* 距离顶部 65px */
+        /*flex: 1; *//* 占据剩余空间 */
+        width: 60%; /* 宽度为父容器的 60% */
+        max-width: 1200px; /* 最大宽度 */
+         background: rgb(238, 243, 250,0.3);/* 背景颜色（半透明） */
+        border-radius: 10px; /* 圆角 */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 阴影 */
+        padding: 20px; /* 内边距 */
+        position: relative; /* 相对定位 */
+        margin-top: 7px; /* 上边距 */
+        left: 7%; /* 距离左侧 1% */
+        right: 10%; /* 距离右侧 10% */
+        height: auto; /* 高度自适应 */
+        backdrop-filter: blur(5px); /* 毛玻璃效果 */
+        -webkit-backdrop-filter: blur(8px); /* Safari 兼容 */
+        /*border: 1px solid rgba(255, 255, 255, 0.2); *//* 边框 */
+    }
+
+    /* 头部容器 */
+    .header-container {
+        position: relative; /* 相对定位 */
+        width: 100%; /* 宽度占满父容器 */
+        text-align: center; /* 文字居中 */
+        margin-bottom: 20px; /* 下边距 */
+    }
+
+    /* 标题 */
+    h1 {
+        font-size: 20px; /* 字体大小 */
+        font-weight: normal; /* 字体粗细 */
+        color: #fff; /* 文字颜色 */
+        margin: 0; /* 去除默认外边距 */
+    }
+
+    /* 周次选择框 */
+    .week-select {
+        padding: 5px; /* 内边距 */
+        border-radius: 4px; /* 圆角 */
+        margin-top: 15px; /* 上边距 */
+        border: 1px solid #feffff; /* 边框 */
+        font-size: 12px; /* 字体大小 */
+        background: white; /* 背景颜色 */
+    }
+
+    /* 课表容器 */
+    .timetable {
+        display: flex; /* 使用 Flex 布局 */
+        margin-top: 10px; /* 上边距 */
+    }
+
+    /* 时间列 */
+    .time-column {
+        /* text-align: center;*/
+        display: flex; /* 使用 Flex 布局 */
+        flex-direction: column; /* 垂直排列 */
+        width: 80px; /* 宽度 */
+        background: rgba(251, 246, 231, 0.77); /* 背景颜色 */
+        padding: 10px; /* 内边距 */
+        border-radius: 8px; /* 圆角 */
+    }
+
+    /* 周次块 */
+    .week-block {
+        height: 40px; /* 高度 */
+        display: flex; /* 使用 Flex 布局 */
+        align-items: center; /* 垂直居中 */
+        justify-content: center; /* 水平居中 */
+        background: #fffffd; /* 背景颜色 */
+        border-radius: 4px; /* 圆角 */
+        margin-bottom: 10px; /* 下边距 */
+        font-size: 13px; /* 字体大小 */
+        color:#93acc8; /* 文字颜色 */
+    }
+
+    /* 时间块 */
+    .time-block {
+        height: 130px; /* 高度 */
+        display: flex; /* 使用 Flex 布局 */
+        flex-direction: column; /* 垂直排列 */
+        align-items: center; /* 垂直居中 */
+        justify-content: center; /* 水平居中 */
+        margin-bottom: 10px; /* 下边距 */
+        background: white; /* 背景颜色 */
+        border-radius: 4px; /* 圆角 */
+        font-size: 12px; /* 字体大小 */
+        color: #666; /* 文字颜色 */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* 阴影 */
+    }
+
+    /* 日期行 */
+    .date-row {
+        display: flex; /* 使用 Flex 布局 */
+        flex-grow: 1; /* 占据剩余空间 */
+        margin-left: 10px; /* 左边距 */
+        position: relative; /* 相对定位 */
+    }
+
+    /* 日期列 */
+    .date-column {
+        flex: 1; /* 占据剩余空间 */
+        min-width: 120px; /* 最小宽度 */
+        padding: 10px; /* 内边距 */
+        position: relative; /* 相对定位 */
+    }
+
+    /* 日期头部 */
+    .date-header {
+        height: 40px; /* 高度 */
+        display: flex; /* 使用 Flex 布局 */
+        flex-direction: column; /* 垂直排列 */
+        align-items: center; /* 垂直居中 */
+        justify-content: center; /* 水平居中 */
+        background: #fffffd; /* 背景颜色 */
+        border-radius: 4px; /* 圆角 */
+        margin-bottom: 10px; /* 下边距 */
+        font-size: 13px; /* 字体大小 */
+        color: #93acc8; /* 文字颜色 */
+    }
+
+    /* 课程块 */
+    .course-block {
+        white-space: pre-line;
+        position: absolute; /* 绝对定位 */
+        display: flex; /* 使用 Flex 布局 */
+        align-items: center; /* 垂直居中 */
+        justify-content: center; /* 水平居中 */
+        border-radius: 6px; /* 圆角 */
+        color: #333; /* 文字颜色 */
+        font-size: 12px; /* 字体大小 */
+        padding: 8px; /* 内边距 */
+        line-height: 1.4; /* 行高 */
+        word-break: break-all; /* 允许单词换行 */
+        overflow: hidden; /* 隐藏溢出内容 */
+        text-align: center; /* 文字居中 */
+        width: calc(100% - 20px); /* 宽度 */
+        cursor: pointer; /* 鼠标指针样式 */
+        box-sizing: border-box; /* 盒模型 */
+        transition: background-color 0.3s ease; /* 背景颜色过渡效果 */
+    }
+
+    /* 课程块悬停效果 */
+    .course-block:hover {
+        background-color: rgba(255, 255, 255, 0.8); /* 背景颜色变亮 */
+    }
+</style>
+
+
+</head>
+<body>
+<div class="main-container"> <!-- 新增的父容器 -->
+<!-- 新增左侧内容区 -->
+    <div class="left-panel">
+        <div class="message-box">
+            <img src="东京街头樱花.jpg" >
+            <img src="富士山樱花2.jpg" >
+            <img src="小熊日本旅行照片.jpg" >
+
+
+            <!--<img src="此系水合照2.png" alt="特别寄语">
+            <img src="木旦土土和此系水湲合照1.png" alt="特别寄语">-->
+
+
+            <div class="message-text">
+                <p>To~小熊🐻</p>
+                <p>希望你在悉尼能够一直有松弛感快乐地学习！<br>
+                    如果忘记今天有什么课了🧸<br>
+                    就打开这个漂亮的网页嘻嘻~(/∇＼*)<br>
+                    你拍的照片真的非常好看ꈍ◡ꈍ😊<br>
+                    每天无忧无虑是一种非常幸福的生活方式~<br>
+                    一定一定要天天开心✌🧸
+                </p>
+
+                <p> toooooooo🐻  by~koiii锦鲤湲🪼</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header-container">
+            <h1>koi送给小熊的课表🐻</h1>
+            <select class="week-select" onchange="updateSchedule()">
+                <option value="1">第1周</option>
+                <option value="2">第2周</option>
+                <option value="3">第3周</option>
+                <option value="4">第4周</option>
+                <option value="5">第5周</option>
+                <option value="6">第6周</option>
+                <option value="7">第7周</option>
+                <option value="8">第8周</option>
+                <option value="9">第9周</option>
+                <option value="10">第10周</option>
+                <option value="11">第11周</option>
+                <option value="12">第12周</option>
+                <option value="13">第13周</option>
+                <option value="14">第14周</option>
+                <option value="15">第15周</option>
+                <option value="16">第16周</option>
+            </select>
+        </div>
+        <div class="timetable">
+            <div class="time-column">
+                <div class="week-block">时间</div>
+                <!--<div class="time-block">1<br>08:00-09:00</div>-->
+                <div class="time-block">1<br>09:00-10:00</div>
+                <div class="time-block">2<br>10:00-11:00</div>
+                <div class="time-block">3<br>11:00-12:00</div>
+                <div class="time-block">4<br>13:00-14:00</div>
+                <div class="time-block">5<br>14:00-15:00</div>
+                <div class="time-block">6<br>15:00-16:00</div>
+                <div class="time-block">7<br>16:00-17:00</div>
+
+            </div>
+            <div class="date-row"></div>
+        </div>
+    </div>
+</div>
+    <script>
+        const scheduleData = {
+            "星期一": [
+                { name: "一周的第一节课!\n🐻\n  \nEveryday Digital Media Lecture\nTelling Stories\n with Data Lecture", weeks: "1-16周", time: "2-3节"},
+                { name: "Everyday Digital Media\nTutorial", weeks: "1-16周", time: "7-7节",location: "B19.03.353.RMC Gunn Building.Gunn Seminar Room 353"}
+            ],
+            "星期二": [
+                { name: "Media Production: Radio and Podcasting, Lecture", weeks: "1-16周", time: "3-3节", location: "A35.03.351.Education Building.Education Lecture Theatre351"},
+            ],
+            "星期三": [
+
+            ],
+            "星期四": [
+                { name: "Media Production: Radio and Podcasting, Tutorial", weeks: "1-16周", time: "5-6节", location: "A35.02.229.Education Building.Education Mac Lab 229"}
+            ],
+            "星期五": [
+                { name: "Visual Art Foundation 2, Workshop", weeks: "1-16周", time: "5-6节", location: "A22.04.431.0ld Teachers College.OTC Visual Arts Studio 431" },
+                { name: "Visual Art Foundation 2,Workshop", weeks: "1-16周", time: "7-7节", location: "A22.04.433.0ld Teachers College.OTC Visual Arts Studio433" }
+            ]
+        };
+
+        /*const colors = ['#ccbbb3', '#86b4cb', '#e2d4af', '#a6c4c6'];
+*/
+/*        const colors = [
+    'rgba(246,241,213,0.8)', // #ccbbb3 透明度 0.8
+    'rgba(246,236,217,0.8)', // #86b4cb 透明度 0.8
+    'rgba(246,242,228,0.8)', // #e2d4af 透明度 0.8
+    'rgba(246,236,223,0.8)'  // #a6c4c6 透明度 0.8
+];*/
+
+        const colors = ['rgba(255,255,255,0.8)'];
+            function calculatePosition(start, duration) {
+
+            const timeBlockHeight = 130;
+            const margin = 10;
+            const top = (start - 1) * (timeBlockHeight + margin) + 64; // 50为头部高度
+            const height = duration * timeBlockHeight + (duration - 1) * margin;
+            return { top, height };
+        }
+
+        function updateSchedule() {
+            const selectedWeek = parseInt(document.querySelector('.week-select').value);
+            const dateRow = document.querySelector('.date-row');
+            dateRow.innerHTML = '';
+
+            Object.entries(scheduleData).forEach(([day, courses]) => {
+                const dateColumn = document.createElement('div');
+                dateColumn.className = 'date-column';
+                const dateHeader = document.createElement('div');
+                dateHeader.className = 'date-header';
+                dateHeader.innerText = day;
+                dateColumn.appendChild(dateHeader);
+
+                courses.forEach(course => {
+                    const [start, end] = course.time.split('-').map(t => parseInt(t.replace('节', '')));
+                    const duration = end - start + 1;
+                    const [startWeek, endWeek] = course.weeks.split('-').map(w => parseInt(w.replace('周', '')));
+
+                    if (selectedWeek >= startWeek && selectedWeek <= endWeek) {
+                        const pos = calculatePosition(start, duration);
+                        const courseBlock = document.createElement('div');
+                        courseBlock.className = 'course-block';
+                        courseBlock.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        courseBlock.style.top = `${pos.top}px`;
+                        courseBlock.style.height = `${pos.height}px`;
+                        courseBlock.innerHTML = `${course.name}<br>${course.location}`;
+                        courseBlock.setAttribute('data-info', `周次: ${course.weeks}<br>教师: ${course.teacher}`);
+                        dateColumn.appendChild(courseBlock);
+                    }
+                });
+
+                dateRow.appendChild(dateColumn);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateSchedule();
+        });
+    </script>
+</body>
+</html>
