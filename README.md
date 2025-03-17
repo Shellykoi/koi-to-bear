@@ -1,2 +1,2 @@
-# koi-to-bear-
+# koi-to-bear
 这是非常好的koiii湲湲写给她的好朋友小熊🐻的专属课表~ꈍ◡ꈍ！！
